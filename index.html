@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seu Spotfy</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#121212;font-family:Montserrat, sans-serif;color:white;display:flex;justify-content:center;gap:30px}
+.container{width:380px;min-height:100vh;background:linear-gradient(#1f1f1f,#121212 40%)}
+.header{padding:20px}
+.cover{width:100%;height:340px;background:url('https://picsum.photos/id/237/600/600') center/cover;position:relative}
+.gradient{position:absolute;bottom:0;width:100%;height:120px;background:linear-gradient(transparent,#121212)}
+h1{margin:12px 0 4px 0;font-weight:800}
+.artist{color:#b3b3b3}
+.playbar{height:4px;background:#1db954;border-radius:10px;margin:20px 0;animation:play 8s linear infinite}
+@keyframes play{from{width:0}to{width:100%}}
+.playbtn{width:70px;height:70px;background:#1db954;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;color:black;cursor:pointer;transition:.2s}
+.playbtn:hover{transform:scale(1.1)}
+.section{padding:20px}
+.card{background:#181818;border-radius:14px;padding:14px;margin-bottom:14px}
+.small{font-size:13px;color:#b3b3b3}
+.hidden{opacity:0;transform:translateY(20px);transition:.5s}
+.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- PLAYLIST 1 -->
+<div class="container">
+  <div class="cover"><div class="gradient"></div></div>
+  <div class="header">
+    <h1>O que existe entre nós</h1>
+    <div class="artist">Uma playlist só pra você</div>
+    <div class="playbar"></div>
+    <div class="playbtn" onclick="reveal(this)">▶</div>
+  </div>
+  <div class="section">
+    <div class="card hidden"><strong>Faixa 1 — Você percebeu</strong><div class="small">Teve um dia que eu não falei nada diferente, mas você perguntou se eu tava bem.</div></div>
+    <div class="card hidden"><strong>Faixa 2 — Ficar</strong><div class="small">Muita gente sabe chegar e ir embora. Mas permaneço aqui, mesmo nos dias mais cinzas, porque sempre valerá a pena.</div></div>
+    <div class="card hidden"><strong>Faixa 3 — Meu jeito difícil</strong><div class="small">Você aprendeu meus jeitos antes de eu conseguir explicar eles.</div></div>
+    <div class="card hidden"><strong>Faixa 4 — O mundo lá fora</strong><div class="small">Conversar com você sempre é bom, anima meus dias e me faz te admirar mais e mais.</div></div>
+    <div class="card hidden"><strong>Faixa Final — Casa</strong><div class="small">Tem partes minhas que só descansam quando é com você.</div></div>
+  </div>
+</div>
+
+<!-- PLAYLIST 2 -->
+<div class="container">
+  <div class="cover"><div class="gradient"></div></div>
+  <div class="header">
+    <h1>Como começou</h1>
+    <div class="artist">Outra playlist secreta</div>
+    <div class="playbar"></div>
+    <div class="playbtn" onclick="reveal(this)">▶</div>
+  </div>
+  <div class="section">
+    <div class="card hidden"><strong>Faixa 1 — Antes de perceber</strong><div class="small">Eu sabia que era você, mesmo antes de te beijar.</div></div>
+    <div class="card hidden"><strong>Faixa 2 — Horas estranhas</strong><div class="small">As melhores conversas sempre vão ser as nossas mais profundas.</div></div>
+    <div class="card hidden"><strong>Faixa 3 — Natural</strong><div class="small">Não teve momento exato. Só teve um dia em que você já tinha um cantinho no meu coração.</div></div>
+    <div class="card hidden"><strong>Faixa 4 — Sem esforço</strong><div class="small">Com você eu não precisei parecer melhor do que sou… e mesmo assim você ficou.</div></div>
+    <div class="card hidden"><strong>Faixa Final — Desde então</strong><div class="small">E continuamos… a vida fica menos pesada quando eu olho pra você, pois você me faz bem, ser ter pressa, sem pressão, só sendo você mesmo, uma companhia tranquila, que eu não trocaria por nada.</div></div>
+  </div>
+</div>
+
+<script>
+function reveal(btn){
+  const container = btn.closest('.container');
+  container.querySelectorAll('.card').forEach((el,i)=>{
+    setTimeout(()=>el.classList.add('show'), i*900);
+  });
+}
+</script>
+
+</body>
+</html>
